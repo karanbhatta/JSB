@@ -1,0 +1,6 @@
+SELECT orders.bill_no, orders.customer_name,
+orders_item.amount
+FROM orders, orders_item, users
+WHERE orders.id=orders_item.order_id AND users.id=orders.user_id AND orders_item.date=NOW()
+GROUP BY orders.id,orders.bill_no
+ORDER BY orders.id
